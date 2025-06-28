@@ -232,18 +232,16 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final foregroundColor =
-        isFilled
-            ? fgColor ?? context.appTheme.background
-            : fgColor ?? context.appTheme.primary;
+    final foregroundColor = isFilled
+        ? fgColor ?? context.appTheme.background
+        : fgColor ?? context.appTheme.primary;
 
     return InkWell(
-      onTap:
-          isDisabled
-              ? disableCallBack ?? () {}
-              : isLoading
-              ? null
-              : onTap,
+      onTap: isDisabled
+          ? disableCallBack ?? () {}
+          : isLoading
+          ? null
+          : onTap,
       borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
       child: Container(
         height: height ?? 48.h,
@@ -253,59 +251,56 @@ class AppButton extends StatelessWidget {
           vertical: verticalPadding ?? 4.h,
         ),
         decoration: BoxDecoration(
-          color:
-              isDisabled
-                  ? context.appTheme.disabledColor
-                  : isFilled
-                  ? bgColor ?? context.appTheme.primary
-                  : context.appTheme.transparent,
+          color: isDisabled
+              ? context.appTheme.disabledColor
+              : isFilled
+              ? bgColor ?? context.appTheme.primary
+              : context.appTheme.transparent,
           borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
           border: borderColor != null ? Border.all(color: borderColor!) : null,
         ),
-        child:
-            isLoading
-                ? Center(
-                  child: SizedBox(
-                    height: loadingSize ?? 20.h,
-                    width: loadingSize ?? 20.h,
-                    child:
-                        loader.isNotNull
-                            ? loader
-                            : CircularProgressIndicator(
-                              color: foregroundColor,
-                              strokeWidth: 2,
-                            ),
-                  ),
-                )
-                : child ??
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (icon != null) ...[icon!],
-                        if (prefix != null) ...[
-                          prefix!,
-                          SizedBox(width: gapBetweenPrefix?.w ?? 8.w),
-                        ],
-                        if (label.isNotNull && label != '') ...[
-                          Flexible(
-                            child: Text(
-                              label!,
-                              style:
-                                  labelTextStyle ??
-                                  context.texts.bodyText1.copyWith(
-                                    color: context.appTheme.background,
-                                  ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ],
-                        if (suffix != null) ...[
-                          SizedBox(width: gapBetweenSuffix?.w ?? 8.w),
-                          suffix!,
-                        ],
+        child: isLoading
+            ? Center(
+                child: SizedBox(
+                  height: loadingSize ?? 20.h,
+                  width: loadingSize ?? 20.h,
+                  child: loader.isNotNull
+                      ? loader
+                      : CircularProgressIndicator(
+                          color: foregroundColor,
+                          strokeWidth: 2,
+                        ),
+                ),
+              )
+            : child ??
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (icon != null) ...[icon!],
+                      if (prefix != null) ...[
+                        prefix!,
+                        SizedBox(width: gapBetweenPrefix?.w ?? 8.w),
                       ],
-                    ),
+                      if (label.isNotNull && label != '') ...[
+                        Flexible(
+                          child: Text(
+                            label!,
+                            style:
+                                labelTextStyle ??
+                                context.texts.button.copyWith(
+                                  color: context.appTheme.background,
+                                ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                      if (suffix != null) ...[
+                        SizedBox(width: gapBetweenSuffix?.w ?? 8.w),
+                        suffix!,
+                      ],
+                    ],
+                  ),
       ),
     );
   }

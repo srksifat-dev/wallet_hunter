@@ -10,7 +10,7 @@ class AppThemeService {
   AppThemeService(this.context);
   final BuildContext context;
   final AppColors _lightColors = AppColors(
-    primary: ColorConst.rentyardBlue,
+    primary: ColorConst.hunterBlue,
     background: ColorConst.white,
     lightText: ColorConst.lightText,
     darkText: ColorConst.blackText,
@@ -27,7 +27,7 @@ class AppThemeService {
 
   final AppColors _darkColors = AppColors(
     white: ColorConst.white,
-    primary: ColorConst.rentyardBlue,
+    primary: ColorConst.hunterBlue,
     background: ColorConst.white,
     lightText: ColorConst.lightText,
     darkText: ColorConst.blackText,

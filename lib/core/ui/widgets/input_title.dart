@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wallet_hunter/core/extensions/extensions.dart';
 
 class InputTitle extends StatelessWidget {
@@ -15,18 +16,26 @@ class InputTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(text: title, style: textStyle ?? context.texts.bodyText2),
-          if (isRequired)
+    return Padding(
+      padding: EdgeInsets.only(bottom: 4.h),
+      child: RichText(
+        text: TextSpan(
+          children: [
             TextSpan(
-              text: '*',
-              style: context.texts.bodyText2.copyWith(
-                color: context.appTheme.error,
-              ),
+              text: title,
+              style:
+                  textStyle ??
+                  context.texts.caption.copyWith(fontWeight: FontWeight.normal),
             ),
-        ],
+            if (isRequired)
+              TextSpan(
+                text: '*',
+                style: context.texts.bodyText2.copyWith(
+                  color: context.appTheme.error,
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }

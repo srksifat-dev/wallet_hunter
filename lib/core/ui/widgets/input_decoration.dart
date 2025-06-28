@@ -59,6 +59,7 @@ class AppInputDecorationStyles {
           context.texts.subtitle1.copyWith(
             color: context.appTheme.lightText.withValues(alpha: 0.5),
             fontSize: 14.sp,
+            fontWeight: FontWeight.normal,
           ),
       label: label,
       labelStyle: context.texts.bodyText2,

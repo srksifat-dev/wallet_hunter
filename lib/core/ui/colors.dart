@@ -33,12 +33,16 @@ class AppColors {
 }
 
 abstract class AppColorSchemes {
-  static const lightColorScheme = ColorScheme.light(primary: ColorConst.rentyardBlue);
-  static const darkColorScheme = ColorScheme.dark(primary: ColorConst.rentyardBlue);
+  static const lightColorScheme = ColorScheme.light(
+    primary: ColorConst.hunterBlue,
+  );
+  static const darkColorScheme = ColorScheme.dark(
+    primary: ColorConst.hunterBlue,
+  );
 }
 
 class ColorConst {
-  static const Color rentyardBlue = Color(0xff316EED);
+  static const Color hunterBlue = Color(0xff5e60ce);
   static const Color errorRed = Color(0xffFF6A62);
   static const Color lightText = Color(0xff6F6C6A);
   static const Color blackText = Color(0xff272B36);
